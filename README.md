@@ -28,6 +28,8 @@ pip install google-generativeai pillow numpy torch
    - 复制 `config.json.example` 为 `config.json`
    - 在 `config.json` 中填入你的Google AI API密钥
    - 获取API密钥：访问 [Google AI Studio](https://aistudio.google.com/app/apikey)
+   - 需绑定一张visa或者master 信用卡即可获得300美元的免费额度
+   - 绑定方法：访问 [Google AI Studio](https://aistudio.google.com/app/apikey)，点击"绑定信用卡"，输入信用卡信息即可绑定。
 
 ```json
 {
