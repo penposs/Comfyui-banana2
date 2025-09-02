@@ -74,7 +74,6 @@ class BananaNode:
             "required": {
                 "model": (["gemini-2.5-flash-image-preview"],),
                 "prompt": ("STRING", {"multiline": True, "default": "Combine the features of all input images into a single new image."}),
-                "size": (["和输入图一样", "1x1", "16x9", "9x16", "4x3", "3x4", "3x2", "2x3", "21x9", "9x21"],),
             },
             "optional": {
                 "input_image": ("IMAGE",),
@@ -86,7 +85,7 @@ class BananaNode:
     FUNCTION = "generate"
     CATEGORY = "Banana"
 
-    def generate(self, model: str, prompt: str, size: str, input_image: torch.Tensor = None):
+    def generate(self, model: str, prompt: str, input_image: torch.Tensor = None):
         # --- vvvvvvvvvvvv 主要修改区域 vvvvvvvvvvvv ---
         # 1. 在函数开始时获取 logger 实例
         logging.basicConfig(level=logging.INFO, format='%(asctime)s - BananaNode - %(levelname)s - %(message)s', force=True)
