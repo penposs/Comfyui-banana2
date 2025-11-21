@@ -1,6 +1,6 @@
 # ComfyUI-Banana-Node
 
-一个用于ComfyUI的自定义节点，使用Google的Gemini 2.5 Flash Image Preview API生成图像。
+一个用于ComfyUI的自定义节点，使用Google的Gemini 2.5 Flash Image 与 Gemini 3 Pro Image Preview API生成图像。
 
 ## 功能特性
 
@@ -71,7 +71,7 @@ pip install google-generativeai pillow numpy torch
 ## 输入参数
 
 ### Banana Gemini Gen 节点
-- **model**: 模型选择（目前支持 gemini-2.5-flash-image-preview）
+- **model**: 模型选择（目前支持 gemini-2.5-flash-image 与 gemini-3-pro-image-preview）
 - **prompt**: 文本提示词，描述你想要生成的图像
 - **size**: 输出图像尺寸比例
 - **input_image**: 输入图像（必需）
