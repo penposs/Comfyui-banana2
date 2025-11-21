@@ -142,7 +142,7 @@ MIT License
 - 新增图像比例调整节点（Banana Ratio Adjuster）
 - 新增分辨率缩放节点（Banana Resolution Scaler）
 - 支持多种图像比例调整方式（裁剪、填充、拉伸）
-- 支持1K、2K、4K、8K等多种分辨率缩放
+- 支持1K、2K、4K、8K多种分辨率缩放
 - 完善的比例计算和图像处理工具类
 
 ### v1.0.0
