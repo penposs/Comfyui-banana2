@@ -3,8 +3,7 @@
 一个用于ComfyUI的自定义节点，使用Google的Gemini 2.5 Flash Image 与 Gemini 3 Pro Image Preview API生成图像。
 
 新增在线调用
-无敌banana2 🍌 0.2/张 
-https://www.runninghub.cn/post/1991513043091857410/?inviteCode=rh-v1118
+[无敌banana2 🍌 0.2/张](https://www.runninghub.cn/post/1991513043091857410/?inviteCode=rh-v1118)
 
 - 支持1K、2K、4K、8K等多种分辨率缩放
 
@@ -165,8 +164,7 @@ MIT License
 A custom node for ComfyUI that uses Google's Gemini 2.5 Flash Image and Gemini 3 Pro Image Preview APIs to generate images.
 
 New: Online invocation
-Invincible banana2 🍌 0.2/image
-https://www.runninghub.cn/post/1991513043091857410/?inviteCode=rh-v1118
+[Invincible banana2 🍌 0.2/image](https://www.runninghub.ai/post/1991513043091857410/?inviteCode=rh-v1118)
 
 - Supports resolution scaling for 1K, 2K, 4K, 8K, etc.
 ## Features
