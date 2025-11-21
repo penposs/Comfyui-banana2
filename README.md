@@ -5,6 +5,8 @@
 新增在线调用
 [无敌banana2 🍌 0.2/张](https://www.runninghub.cn/post/1991513043091857410/?inviteCode=rh-v1118)
 
+[使用教程](https://www.bilibili.com/video/BV1ByU5BbEqS/?share_source=copy_web&vd_source=e82febcd63de4c3684cb2d737bbe5050)
+
 - 支持1K、2K、4K、8K等多种分辨率缩放
 
 ## 功能特性
