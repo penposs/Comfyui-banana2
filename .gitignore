@@ -65,3 +65,8 @@ venv.bak/
 .Trashes
 ehthumbs.db
 Thumbs.db
+config.json
+config/
+*.zip
+*.ZIP
+banana-app-electron/
