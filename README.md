@@ -167,6 +167,7 @@ A custom node for ComfyUI that uses Google's Gemini 2.5 Flash Image and Gemini 3
 
 New: Online invocation
 [Invincible banana2 🍌 0.2/image](https://www.runninghub.ai/post/1991513043091857410/?inviteCode=rh-v1118)
+[Tutorial](https://www.bilibili.com/video/BV1ByU5BbEqS/?share_source=copy_web&vd_source=e82febcd63de4c3684cb2d737bbe5050)
 
 - Supports resolution scaling for 1K, 2K, 4K, 8K, etc.
 ## Features
