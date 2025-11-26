@@ -9,6 +9,7 @@ import base64
 import time
 import requests
 import re
+import random
 
 # --- 日志配置 ---
 # 我们将 logger 的获取放到类的方法中，以确保作用域正确
@@ -68,6 +69,19 @@ class BananaNode:
             # 在这里我们还不能使用 logger，所以用 print
             print(f"[Banana Node] 加载配置时出错: {e}")
             return {}
+    
+    def add_random_variation(self, prompt, seed=0):
+        """
+        在提示词末尾添加隐藏的随机标识
+        确保每次运行都能得到不同结果
+        """
+        if seed == 0:
+            random_id = random.randint(10000, 99999)
+        else:
+            rng = random.Random(seed)
+            random_id = rng.randint(10000, 99999)
+        
+        return f"{prompt} [variation-{random_id}]"
 
     @classmethod
     def INPUT_TYPES(s):
@@ -77,6 +91,12 @@ class BananaNode:
                 "prompt": ("STRING", {"multiline": True, "default": "Combine the features of all input images into a single new image."}),
                 "aspect_ratio": (["Automatic", "1:1", "2:3", "3:2", "3:4", "4:3", "4:5", "5:4", "9:16", "16:9", "21:9"], {"default": "Automatic"}),
                 "resolution": (["1K", "2K", "4K"], {"default": "1K"}),
+                "seed": ("INT", {
+                    "default": 0,
+                    "min": 0,
+                    "max": 0xffffffffffffffff,
+                    "tooltip": "随机种子，改变此值会强制重新生成内容"
+                }),
             },
             "optional": {
                 "api_key": ("STRING", {"multiline": False, "default": ""}),
@@ -103,7 +123,7 @@ class BananaNode:
     FUNCTION = "generate"
     CATEGORY = "Banana"
 
-    def generate(self, model: str, prompt: str, aspect_ratio: str, resolution: str, api_key: str = "", base_url: str = "",
+    def generate(self, model: str, prompt: str, aspect_ratio: str, resolution: str, seed: int = 0, api_key: str = "", base_url: str = "",
                  image1: torch.Tensor = None, image2: torch.Tensor = None, image3: torch.Tensor = None, image4: torch.Tensor = None,
                  image5: torch.Tensor = None, image6: torch.Tensor = None, image7: torch.Tensor = None, image8: torch.Tensor = None,
                  image9: torch.Tensor = None, image10: torch.Tensor = None, image11: torch.Tensor = None, image12: torch.Tensor = None,
@@ -113,6 +133,10 @@ class BananaNode:
         logging.basicConfig(level=logging.INFO, format='%(asctime)s - BananaNode - %(levelname)s - %(message)s', force=True)
         logger = logging.getLogger(__name__)
         # --- ^^^^^^^^^^^^ 主要修改区域 ^^^^^^^^^^^^ ---
+        
+        # 添加随机变化因子到提示词
+        varied_prompt = self.add_random_variation(prompt, seed)
+        logger.info(f"随机种子: {seed}")
         
         # 优先使用输入的 api_key，如果没有则使用配置文件中的
         api_key = api_key.strip() if api_key else self.config.get("api_key")
@@ -200,8 +224,8 @@ class BananaNode:
                 except Exception as _e:
                     logger.warning(f"编码输入图片失败（已跳过一张）: {_e}")
             # 再放入用户文本指令
-            if prompt:
-                parts.append({"text": prompt})
+            if varied_prompt:
+                parts.append({"text": varied_prompt})
 
             # 构建 generationConfig
             generation_config = {
